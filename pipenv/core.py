@@ -1309,7 +1309,7 @@ def get_pip_args(
         "no_use_pep517": [],
         "no_deps": ["--no-deps"],
         "selective_upgrade": [
-            "--upgrade-strategy=only-if-needed", "--exists_action={0}".format(PIP_EXISTS_ACTION or "i")
+            "--upgrade-strategy=only-if-needed", "--exists-action={0}".format(PIP_EXISTS_ACTION or "i")
         ],
         "src_dir": src_dir,
     }
@@ -1398,7 +1398,7 @@ def pip_install(
     trusted_hosts=None,
     use_pep517=True
 ):
-    from pipenv.patched.notpip._internal import logger as piplogger
+    piplogger = logging.getLogger("pipenv.patched.notpip._internal.commands.install")
     src_dir = None
     if not trusted_hosts:
         trusted_hosts = []
